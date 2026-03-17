@@ -67,3 +67,76 @@ gsap.to ("#hero ul", {
     },
     opacity: 0,
 })
+
+/*===== Gallery =====*/
+
+const gallery = document.querySelector('.gallery-horizontal-scroll');
+
+let isDown = false;
+let startX;
+let scrollLeft;
+
+gallery.addEventListener('mousedown', (e) => {
+  isDown = true;
+  gallery.classList.add('active');
+  startX = e.pageX - gallery.offsetLeft;
+  scrollLeft = gallery.scrollLeft;
+});
+
+gallery.addEventListener('mouseleave', () => {
+  isDown = false;
+});
+
+gallery.addEventListener('mouseup', () => {
+  isDown = false;
+});
+
+gallery.addEventListener('mousemove', (e) => {
+  if (!isDown) return;
+  e.preventDefault();
+  const x = e.pageX - gallery.offsetLeft;
+  const walk = (x - startX) * 2; 
+  gallery.scrollLeft = scrollLeft - walk;
+});
+
+document.querySelectorAll('.split').forEach((el) => {
+  let type = 'chars';
+
+  if (el.classList.contains('words')) type = 'words';
+  if (el.classList.contains('lines')) type = 'lines';
+
+  new SplitType(el, { types: type });
+});
+
+const btnVar1 = document.querySelectorAll('.btn-var1');
+
+btnVar1.forEach((btn) => {
+  let isAnimating = false;
+
+  btn.addEventListener('mouseenter', () => {
+    if (isAnimating) return;
+    isAnimating = true;
+
+    const chars = btn.querySelectorAll('.char');
+
+    const tl = gsap.timeline({
+      onComplete: () => isAnimating = false
+    });
+
+    tl.to(chars, {
+      yPercent: 100,
+      stagger: 0.03,
+      duration: 0.3,
+      ease: "power2.in"
+    })
+    .set(chars, {
+      yPercent: -100
+    })
+    .to(chars, {
+      yPercent: 0,
+      stagger: 0.05,
+      duration: 0.3,
+      ease: "power2.out"
+    });
+  });
+});

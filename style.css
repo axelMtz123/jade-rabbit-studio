@@ -82,7 +82,7 @@
   --section-x: clamp(1.5rem, 6vw, 6rem);
 
   --max-width:       clamp(320px, 95vw, 1440px);
-  --max-width-wide:  clamp(320px, 100vw, 1540px);
+  --max-width-wide:  clamp(320px, 100vw, 1740px);
  
 }
  
@@ -243,7 +243,7 @@ nav h2 {
 }
 
 .hero-container {
-    max-width: var(--max-width);
+    max-width: var(--max-width-wide);
     width: 100%;
     height: 100%;
     display: flex;
@@ -347,11 +347,124 @@ nav h2 {
 }
 
 /*===================
-    About
+    gallery
 ===================*/
 
-#about {
+#gallery {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     height: 100vh;
+    margin-top: var(--space-20);
+}
+
+.gallery-container {
+    max-width: var(--max-width-wide);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: var(--space-6);
+}
+
+.gallery-horizontal-scroll {
+    display: flex;
+    justify-self: end;
+    width: 100%;
+    min-height: auto;
+    gap: var(--space-4);
+    overflow-x: auto;
+    padding: var(--space-4) 0;
+    position: relative;
+    cursor: grab;
+    padding-left: var(--space-4);
+}
+
+.gallery-horizontal-scroll:active {
+  cursor: grabbing;
+}
+
+.gallery-horizontal-scroll::-webkit-scrollbar {
+  display: none;
+}
+.gallery-horizontal-scroll {
+  scrollbar-width: none;
+}
+
+.gallery-images {
+    display: flex;
+    gap: var(--space-4);
+}
+
+#gallery img {
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.gallery-title {
+    display: flex;
+    align-items: center;
+    height: 50%;
+    width: 60%;
+    border-bottom: 2px solid;
+}
+
+.number {
+    font-size: var(--fs-232);
+    font-family: var(--font-display);
+    font-weight: 200;
+}
+
+.title-text {
+    font-size: var(--fs-61);
+    font-family: var(--font-display);
+    font-weight: 200;
+    letter-spacing: var(--ls-wide);
+    height: 100%;
+    align-content: end;
+    position: relative;
+}
+
+.title-text::after {
+    content: "";
+    width: 100%;
+    height: 2rem;
+    background-color: var(--color-sage);
+    position: absolute;
+    bottom: 5%;
+    left: 0;
+    z-index: -1;
+    opacity: 0.3;
+}
+
+.gallery-text {
+    justify-content: end;
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.gallery-text p {
+    font-weight: 200;
+}
+
+.gallery-menu {
+    display: flex;
+    gap: var(--space-4);
+    padding: 0 var(--space-4);
+    border-left: 2px solid;
+}
+
+.btn-var1 {
+  overflow: hidden;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.char {
+  display: inline-block;
 }
