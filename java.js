@@ -35,7 +35,7 @@ navItems.forEach((item) => {
 const heroTitle1 = document.querySelector('.hero-title-1');
 const heroTitle2 = document.querySelector('.hero-title-2');
 
-/*
+
 if (window.innerWidth > 500) {
 
     const heroTimeline = gsap.timeline({ defaults: { ease: "power2.inOut" } });
@@ -57,7 +57,7 @@ if (window.innerWidth > 500) {
         heroTimelineMobile.fromTo('.hero-main button', { opacity: 0 }, { opacity: 1 });
         heroTimelineMobile.fromTo('#hero ul li', { opacity: 0, xPercent: -80 }, { opacity: 1, xPercent: 0, stagger: 0.5}, "<");
 }
-*/
+
 
 gsap.to ("#hero ul", {
     scrollTrigger: {
@@ -140,3 +140,5 @@ btnVar1.forEach((btn) => {
     });
   });
 });
+
+

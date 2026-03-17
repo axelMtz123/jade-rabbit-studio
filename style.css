@@ -356,7 +356,10 @@ nav h2 {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin-top: var(--space-20);
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    margin-bottom: var(--space-8);
 }
 
 .gallery-container {
@@ -376,7 +379,6 @@ nav h2 {
     gap: var(--space-4);
     overflow-x: auto;
     padding: var(--space-4) 0;
-    position: relative;
     cursor: grab;
     padding-left: var(--space-4);
 }
@@ -467,4 +469,67 @@ nav h2 {
 
 .char {
   display: inline-block;
+}
+
+.gallery-flower {
+    position: absolute;
+    top: 0;
+    right: 10%;
+    width: clamp(80px, 20vw, 150px);
+    height: 100%;
+    z-index: 10;
+}
+
+@media (max-width: 500px) {
+    .gallery-container {
+        max-width: var(--max-width);
+    }
+
+    .gallery-title {
+        width: 100%;
+        gap: var(--space-2);
+    }
+
+    .gallery-title .title-text {
+        font-size: var(--fs-49);
+    }
+
+    .gallery-text {
+        width: 100%;
+        min-height: auto;
+    }
+
+    .gallery-text p {
+        width: 70%;
+    }
+
+    .gallery-menu {
+        justify-content: center;
+    }
+
+    .gallery-flower {
+        height: 80%;
+    }
+    
+    .number {
+        line-height: 6rem;
+        align-self: end;
+        justify-self: end;
+    }
+}
+
+/*===================
+    about
+===================*/
+
+#about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-bg);
+    height: 100vh;
+    width: 100%;
+    z-index: 6;
+    position: relative;
 }
