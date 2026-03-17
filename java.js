@@ -141,4 +141,25 @@ btnVar1.forEach((btn) => {
   });
 });
 
+const filterbtns = document.querySelectorAll('.gallery-menu button');
+const images = document.querySelectorAll('#gallery img');
 
+filterbtns.forEach((btn) => {
+  btn.addEventListener('click', () => {
+
+    // swap active class
+    filterbtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    // filter images
+    const cat = btn.getAttribute('data-category');
+    images.forEach((img) => {
+      if (cat === 'all' || img.getAttribute('data-category').includes(cat)) {
+        img.style.display = 'block';
+      } else {
+        img.style.display = 'none';
+      }
+    });
+
+  });
+});
