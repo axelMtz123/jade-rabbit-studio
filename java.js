@@ -4,11 +4,13 @@ gsap.registerPlugin(ScrollTrigger);
 const hamBtn = document.querySelector('.hamburger');
 const hamMenu = document.querySelector('.ham-menu');
 const navItems = document.querySelectorAll('.nav-item');
+const flower = document.querySelector('.gallery-flower');
 
 gsap.set(hamMenu, { yPercent: -100 });
 
 hamBtn.addEventListener('click', () => {
   hamBtn.classList.toggle('active');
+  flower.classList.toggle('active');
 
   const isOpen = hamBtn.classList.contains('active');
 
@@ -22,6 +24,8 @@ hamBtn.addEventListener('click', () => {
 navItems.forEach((item) => {
   item.addEventListener('click', () => {
     hamBtn.classList.remove('active');
+    flower.classList.remove('active');
+
     gsap.to(hamMenu, {
       duration: 0.8,
       ease: "power2.inOut",
@@ -29,6 +33,16 @@ navItems.forEach((item) => {
     });
   });
 });
+
+gsap.to('header', {
+    backgroundColor: 'rgba(245, 240, 232, 0.5)',
+    scrollTrigger: {
+      trigger: '#gallery',
+      start: 'top 10%',
+      scrub: true,
+    },
+  }
+)
 
 
 /********** Hero Section **********/
@@ -162,4 +176,41 @@ filterbtns.forEach((btn) => {
     });
 
   });
+});
+
+/*===== About =====*/
+new SplitType('.number-change', { types: 'chars' });
+
+// 1. scrub the whole element down on scroll
+gsap.to('.number-change', { 
+    yPercent: 150,
+    ease: "none",
+    scrollTrigger: {
+        trigger: '#about',
+        start: 'bottom bottom',
+        end: 'bottom top',
+        scrub: true,
+    },
+});
+
+// 2. once it lands, swap the number
+ScrollTrigger.create({
+    trigger: '#artists',
+    start: 'top center',
+    onEnter: () => {
+      gsap.to('.number-change .char:nth-child(2)', { 
+          yPercent: 100, 
+          duration: 0.5,
+          onComplete: () => { 
+              document.querySelector('.number-change').textContent = '03';
+              // re-split after text change
+              new SplitType('.number-change', { types: 'chars' });
+              const newChar = document.querySelector('.number-change .char:nth-child(2)');
+              gsap.fromTo(newChar, 
+                  { yPercent: -100 }, 
+                  { yPercent: 0, duration: 0.5 }
+              );
+          }
+      });
+  },
 });

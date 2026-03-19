@@ -474,10 +474,19 @@ nav h2 {
 .gallery-flower {
     position: absolute;
     top: 0;
-    right: 10%;
+    right: 20%;
     width: clamp(80px, 20vw, 150px);
-    height: 100%;
+    height: 80%;
     z-index: 10;
+    transition: all .9s ease;
+}
+
+.gallery-flower.active {
+    opacity: 0;
+}
+
+.flower-wrapper {
+    position: relative;
 }
 
 
@@ -509,10 +518,6 @@ nav h2 {
         justify-content: center;
     }
 
-    .gallery-flower {
-        height: 80%;
-    }
-    
     .number {
         line-height: 6rem;
         align-self: end;
@@ -534,4 +539,122 @@ nav h2 {
     width: 100%;
     z-index: 6;
     position: relative;
+}
+
+.about-container {
+    max-width: var(--max-width-wide);
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4);
+    margin-top: var(--section-y);
+}
+
+.about-left-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
+    border-right: 2px solid;
+}
+
+.about-sticky-wrapper {
+    position: sticky;
+    top: 10%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.about-sticky-wrapper h2 {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    font-size: var(--fs-39);
+    font-family: var(--font-display);
+    font-weight: 200;
+    position: relative;
+}
+
+.about-sticky-wrapper h2::after {
+    content: "";
+    width: 2rem;
+    height: 100%;
+    background-color: var(--color-sage);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0.3;
+    border-radius: 4px;
+}
+
+.about-sticky-wrapper p {
+    font-size: var(--fs-31);
+    font-family: var(--font-body);
+    width: 60%;
+    margin-top: var(--space-8);
+}
+
+.about-right-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    margin-bottom: var(--space-6);
+    gap: var(--space-4);
+}
+
+.about-right-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.about-right-card h3 {
+    font-size: var(--fs-39);
+    font-family: var(--font-display);
+    font-weight: 200;
+}
+
+.li-title {
+    font-size: var(--fs-25);
+    font-weight: 200;
+}
+
+.about-right-card ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+}
+
+.number-change {
+    overflow: visible;
+}
+
+/*===================
+    Artists
+===================*/
+
+#artists {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    z-index: 6;
+}
+
+/*===================
+    testimonials
+===================*/
+
+#testimonials {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    z-index: 6;
 }
