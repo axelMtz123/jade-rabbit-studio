@@ -84,33 +84,38 @@ gsap.to ("#hero ul", {
 
 /*===== Gallery =====*/
 
-const gallery = document.querySelector('.gallery-horizontal-scroll');
+const horizontalScrolls = [
+    document.querySelector('.gallery-horizontal-scroll'),
+    document.querySelector('.artists-horizontal-scroll')
+];
 
-let isDown = false;
-let startX;
-let scrollLeft;
+horizontalScrolls.forEach(el => {
+    let isDown = false;
+    let startX;
+    let scrollLeft;
 
-gallery.addEventListener('mousedown', (e) => {
-  isDown = true;
-  gallery.classList.add('active');
-  startX = e.pageX - gallery.offsetLeft;
-  scrollLeft = gallery.scrollLeft;
-});
+    el.addEventListener('mousedown', (e) => {
+        isDown = true;
+        el.classList.add('active');
+        startX = e.pageX - el.offsetLeft;
+        scrollLeft = el.scrollLeft;
+    });
 
-gallery.addEventListener('mouseleave', () => {
-  isDown = false;
-});
+    el.addEventListener('mouseleave', () => {
+        isDown = false;
+    });
 
-gallery.addEventListener('mouseup', () => {
-  isDown = false;
-});
+    el.addEventListener('mouseup', () => {
+        isDown = false;
+    });
 
-gallery.addEventListener('mousemove', (e) => {
-  if (!isDown) return;
-  e.preventDefault();
-  const x = e.pageX - gallery.offsetLeft;
-  const walk = (x - startX) * 2; 
-  gallery.scrollLeft = scrollLeft - walk;
+    el.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - el.offsetLeft;
+        const walk = (x - startX) * 2;
+        el.scrollLeft = scrollLeft - walk;
+    });
 });
 
 document.querySelectorAll('.split').forEach((el) => {
@@ -179,11 +184,11 @@ filterbtns.forEach((btn) => {
 });
 
 /*===== About =====*/
-new SplitType('.number-change', { types: 'chars' });
+// 1. scrub down on scroll
+const yMove = window.innerWidth <= 500 ? 680 : 110;
 
-// 1. scrub the whole element down on scroll
 gsap.to('.number-change', { 
-    yPercent: 150,
+    yPercent: yMove,
     ease: "none",
     scrollTrigger: {
         trigger: '#about',
@@ -193,24 +198,28 @@ gsap.to('.number-change', {
     },
 });
 
-// 2. once it lands, swap the number
+// 2. fade out, swap, fade in
 ScrollTrigger.create({
     trigger: '#artists',
     start: 'top center',
     onEnter: () => {
-      gsap.to('.number-change .char:nth-child(2)', { 
-          yPercent: 100, 
-          duration: 0.5,
-          onComplete: () => { 
-              document.querySelector('.number-change').textContent = '03';
-              // re-split after text change
-              new SplitType('.number-change', { types: 'chars' });
-              const newChar = document.querySelector('.number-change .char:nth-child(2)');
-              gsap.fromTo(newChar, 
-                  { yPercent: -100 }, 
-                  { yPercent: 0, duration: 0.5 }
-              );
-          }
-      });
-  },
+        gsap.to('.number-change', {
+            opacity: 0,
+            duration: 0.6,
+            onComplete: () => {
+                document.querySelector('.number-change').textContent = '03';
+                gsap.to('.number-change', { opacity: 1, duration: 0.6 });
+            }
+        });
+    },
+    onLeaveBack: () => {
+        gsap.to('.number-change', {
+            opacity: 0,
+            duration: 0.6,
+            onComplete: () => {
+                document.querySelector('.number-change').textContent = '02';
+                gsap.to('.number-change', { opacity: 1, duration: 0.6 });
+            }
+        });
+    }
 });
