@@ -361,6 +361,7 @@ nav h2 {
     top: 0;
     z-index: 3;
     margin-bottom: var(--space-8);
+    margin-top: var(--space-12);
 }
 
 .gallery-container {
@@ -376,7 +377,7 @@ nav h2 {
     display: flex;
     justify-self: end;
     width: 100%;
-    min-height: auto;
+    min-height: 60%;
     gap: var(--space-4);
     overflow-x: auto;
     padding: var(--space-4) 0;
@@ -509,7 +510,6 @@ nav h2 {
 
     .gallery-text {
         width: 100%;
-        min-height: auto;
     }
 
     .gallery-text p {
