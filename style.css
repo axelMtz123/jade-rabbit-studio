@@ -736,54 +736,60 @@ nav h2 {
 .artists-pages {
     display: flex;
     width: max-content;
-}
-
-.artist-card {
-    height: clamp(35rem, 45vh, 50rem);
-    width: clamp(20rem, 45vw, 35rem);
+    gap: var(--space-10);
     position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }
 
-.artist-card img {
-    position: absolute;
-    z-index: -1;
+.polaroid-card {
+    background: white;
+    padding: 12px 12px 24px 12px;
+    width: 280px;
+    flex-shrink: 0;
 }
 
-.blob-center {
-  height: clamp(30rem, 45vh, 50rem);
-  top: 0;
+.polaroid-img {
+    width: 100%;
+    height: 340px;
+    overflow: hidden;
 }
 
-.blob-up {
-  height: clamp(25rem, 35vh, 35rem);
-  top: 0;
-}
-
-.blob-down {
-  height: clamp(25rem, 35vh, 35rem);
-  top: 10%;
-}
-
-.card-content {
+.polaroid-img img {
     width: 100%;
     height: 100%;
-    z-index: 2;
-    border: 2px solid;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-2);
-    position: relative;
-}
-
-.artist-card img {
+    object-fit: cover;
     pointer-events: none;
     user-select: none;
     -webkit-user-drag: none;
+}
+
+.polaroid-info {
+    padding-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.polaroid-accent {
+    width: 30px;
+    height: 2px;
+    margin-bottom: 2px;
+}
+
+.r1 { transform: rotate(-3deg); }
+.r2 { transform: rotate(2deg); }
+.r3 { transform: rotate(-1.5deg); }
+
+.card-string {
+    width: 100%;
+    height: 60%;
+    position: absolute;
+    top: -15%;
+    left: 0;
+    display: block;
+    z-index: 6;
 }
 
 @media (max-width: 500px) {
