@@ -223,3 +223,44 @@ ScrollTrigger.create({
         });
     }
 });
+
+/* ===== Artists =====*/
+const scrollContainers = document.querySelectorAll('.artists-horizontal-scroll');
+
+scrollContainers.forEach(container => {
+    container.addEventListener('mouseup', () => {
+        container.classList.remove('active');
+        
+        // force hover to re-trigger by briefly removing and re-adding the card
+        container.querySelectorAll('.polaroid-card').forEach(card => {
+            card.style.pointerEvents = 'none';
+            setTimeout(() => {
+                card.style.pointerEvents = '';
+            }, 10);
+        });
+    });
+});
+
+// Store scroll position when leaving index
+document.querySelectorAll('.btn-var1').forEach(btn => {
+  btn.addEventListener('click', () => {
+    sessionStorage.setItem('scrollPos', window.scrollY);
+  });
+});
+
+// Restore scroll position on index load
+window.addEventListener('load', () => {
+  const scrollPos = sessionStorage.getItem('scrollPos');
+  if (scrollPos) {
+    window.scrollTo({ top: parseInt(scrollPos), behavior: 'auto' }); // change to 'smooth' if you want
+    sessionStorage.removeItem('scrollPos'); // clean up
+  }
+});
+
+function goBack() {
+  if (document.referrer.includes(window.location.origin)) {
+    history.back();
+  } else {
+    window.location.href = "../index.html";
+  }
+}
