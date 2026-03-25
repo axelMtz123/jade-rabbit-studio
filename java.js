@@ -167,11 +167,11 @@ const images = document.querySelectorAll('#gallery img');
 filterbtns.forEach((btn) => {
   btn.addEventListener('click', () => {
 
-    // swap active class
+  
     filterbtns.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
 
-    // filter images
+   
     const cat = btn.getAttribute('data-category');
     images.forEach((img) => {
       if (cat === 'all' || img.getAttribute('data-category').includes(cat)) {
@@ -185,7 +185,7 @@ filterbtns.forEach((btn) => {
 });
 
 /*===== About =====*/
-// 1. scrub down on scroll
+
 const yMove = window.innerWidth <= 500 ? 700 : 110;
 
 gsap.to('.number-change', { 
@@ -199,7 +199,7 @@ gsap.to('.number-change', {
     },
 });
 
-// 2. fade out, swap, fade in
+
 ScrollTrigger.create({
     trigger: '#artists',
     start: 'top center',
@@ -232,7 +232,7 @@ scrollContainers.forEach(container => {
     container.addEventListener('mouseup', () => {
         container.classList.remove('active');
         
-        // force hover to re-trigger by briefly removing and re-adding the card
+     
         container.querySelectorAll('.polaroid-card').forEach(card => {
             card.style.pointerEvents = 'none';
             setTimeout(() => {
@@ -242,19 +242,18 @@ scrollContainers.forEach(container => {
     });
 });
 
-// Store scroll position when leaving index
+
 document.querySelectorAll('.btn-var1').forEach(btn => {
   btn.addEventListener('click', () => {
     sessionStorage.setItem('scrollPos', window.scrollY);
   });
 });
 
-// Restore scroll position on index load
 window.addEventListener('load', () => {
   const scrollPos = sessionStorage.getItem('scrollPos');
   if (scrollPos) {
-    window.scrollTo({ top: parseInt(scrollPos), behavior: 'auto' }); // change to 'smooth' if you want
-    sessionStorage.removeItem('scrollPos'); // clean up
+    window.scrollTo({ top: parseInt(scrollPos), behavior: 'auto' });
+    sessionStorage.removeItem('scrollPos'); 
   }
 });
 
@@ -265,3 +264,14 @@ function goBack() {
     window.location.href = "../index.html";
   }
 }
+
+const marquee = document.querySelector(".marquee-track")
+
+const width = marquee.offsetWidth;
+
+gsap.to (marquee, {
+  x: `-${width}px`,
+  duration: 50,
+  repeat: -1,
+  ease: 'linear'
+})

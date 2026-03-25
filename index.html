@@ -41,7 +41,7 @@
                         Jade
                     </h1>
 
-                    <button>ENTER</button>
+                    <button class="btn-var3">ENTER</button>
 
                     <h1 class="hero-title-2">
                         <span class="hero-line-2"></span>
@@ -92,7 +92,7 @@
                     </div>
                 </div>
 
-               
+               <p class="scroll-text">Grab and scroll ➜</p>
             </section>
 
             <section id="about">
@@ -246,7 +246,7 @@
                     <div class="testimonials">
                         <div class="testimonial-card" style="background-color: #D7C58A;">
                             <div class="stars">
-
+                                <img src="assets/star-1.png" alt="">
                             </div>
 
                             <div class="testimonial-content">
@@ -267,7 +267,7 @@
 
                         <div class="testimonial-card" style="background-color: var(--color-sage);">
                             <div class="stars">
-
+                                <img src="assets/stars-2.png" alt="">
                             </div>
 
                             <div class="testimonial-content">
@@ -285,7 +285,7 @@
 
                         <div class="testimonial-card" style="background-color: var(--color-rose);">
                             <div class="stars">
-
+                                <img src="assets/star-3.png" alt="">
                             </div>
 
                             <div class="testimonial-content">
@@ -303,15 +303,110 @@
                     </div>
                 </div>
             </div>
+
+            <p class="scroll-text">Grab and scroll ➜</p>
+
+            <div class="marquee">
+                <div class="marquee-track">
+                    <span>Clients trust Jade Rabbit Studio for thoughtful designs, talented artists, and a tattoo experience that feels personal, comfortable, and collaborative from start to finish.</span>
+                </div>
+            </div>
         </section>
 
         <section id="contact">
+            <div class="contact-container">
+                <div class="contact-title">
+                    <h2 class="underline">CONTACT</h2>
 
+                    <h2>05</h2>
+                </div>
+
+                <div class="contact-content">
+                    <div class="contact-left">
+                        <div class="booking-container">
+                            <h3>Booking form</h3>
+                            
+                            <form action="#" id="booking-form" method="POST">
+                                <input type="text" id="name" name="name" placeholder="Full Name" required>
+
+                                <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+                                <input type="tel" id="phone" name="phone" placeholder="Phone Number">
+      
+                                <select id="artist-select" name="artist" required>
+                                    <option value="">Select Artist</option>
+                                    <option value="john">John</option>
+                                    <option value="sarah">Sarah</option>
+                                    <option value="mike">Mike</option>
+                                </select>
+                                
+                                <input type="date" id="date" name="date" required>
+                                
+                                <input type="time" id="time" name="time" required>
+                                
+                                <textarea id="notes" name="notes" placeholder="Describe your idea..."></textarea>
+                                
+                                <button type="submit" class="btn-var3">Submit</button>
+                            </form>
+                        </div>
+
+                        <div class="contact-info">
+                            <p>Studio's Address</p>
+
+                            <p>2717 1/2 Ingersoll AveDes Moines, IA 50312</p>
+
+                            <p>For General Enquiries</p>
+
+                            <p>hello@jaderabbitstudio.com</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-right">
+                        <div class="map">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2984.2281935071073!2d-93.65638742393031!3d41.58594587127533!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87ee9928f6bcc35f%3A0xc26cef48a3a872f1!2s2717%201%2F2%20Ingersoll%20Ave%2C%20Des%20Moines%2C%20IA%2050312!5e0!3m2!1sen!2sus!4v1774464179539!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
         </section>
     </main>
 
     <footer>
+        <section id="end">
+            <div class="end-container">
+                <div class="end-info">
+                    <div class="end-links">
+                        <a class="btn-var2" href="">Instagram</a>
+                        <div class="circle"></div>
+                        <a class="btn-var2" href="">Facebook</a>
+                    </div>
 
+                    <p>hello@jaderabbitstudio.com</p>
+                </div>
+
+                <div class="end-content">
+                    <p class="end-title">Jade Rabbit</p>
+
+                    <ul class="end-menu">
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#artists">Artists</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+
+                    <p>A Tattoo Studio Based In Des Moines, Iowa</p>
+                </div>
+
+                <div class="footer">
+                    <p>Jade Rabbit © 2026</p>
+
+                    <p>Website made by <a href="">Axel</a></p>
+                </div>
+            </div>
+        </section>
     </footer>
         
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
