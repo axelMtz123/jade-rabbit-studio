@@ -86,7 +86,8 @@ gsap.to ("#hero ul", {
 
 const horizontalScrolls = [
     document.querySelector('.gallery-horizontal-scroll'),
-    document.querySelector('.artists-horizontal-scroll')
+    document.querySelector('.artists-horizontal-scroll'),
+    document.querySelector('.testimonial-horizontal-scroll'),
 ];
 
 horizontalScrolls.forEach(el => {
@@ -185,7 +186,7 @@ filterbtns.forEach((btn) => {
 
 /*===== About =====*/
 // 1. scrub down on scroll
-const yMove = window.innerWidth <= 500 ? 680 : 110;
+const yMove = window.innerWidth <= 500 ? 700 : 110;
 
 gsap.to('.number-change', { 
     yPercent: yMove,
