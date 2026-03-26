@@ -275,3 +275,20 @@ gsap.to (marquee, {
   repeat: -1,
   ease: 'linear'
 })
+
+ gsap.set(".text-up .char", { yPercent: 100 })
+
+document.querySelectorAll('.text-up').forEach(el => {
+  gsap.timeline({
+    scrollTrigger: {
+      trigger: el,       
+      start: "top 80%",
+      end: "top 20%",
+    }
+  })
+  .to(el.querySelectorAll('.char'), {
+    yPercent: 0,
+    ease: "none",
+    stagger: 0.05
+  });
+});

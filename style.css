@@ -113,7 +113,7 @@ body {
 img, video, svg { display: block; max-width: 100%; height: auto; }
 a              { color: var(--color-text); text-decoration: none; }
 ul, ol         { list-style: none; }
-button         { cursor: pointer; border: none; background: none; font: inherit; }
+button         { cursor: pointer; border: none; background: none; font: inherit; color: var(--color-text); }
 input, textarea, select { font: inherit; }
  
 
@@ -411,9 +411,10 @@ nav h2 {
 .gallery-title {
     display: flex;
     align-items: center;
-    height: 50%;
     width: 60%;
     border-bottom: 2px solid;
+    overflow: hidden;
+   
 }
 
 .number {
@@ -531,7 +532,13 @@ nav h2 {
         height: 55%;
         right: 5%;
     }
+
+    .btn-var1 {
+        font-size: 14px;
+    }
 }
+
+
 
 /*===================
     about
@@ -543,7 +550,7 @@ nav h2 {
     justify-content: center;
     align-items: center;
     background-color: var(--color-bg);
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     z-index: 6;
     position: relative;
@@ -601,6 +608,7 @@ nav h2 {
     font-family: var(--font-body);
     width: 60%;
     margin-top: var(--space-8);
+    margin-right: var(--space-4);
 }
 
 .about-right-column {
@@ -1146,6 +1154,8 @@ textarea {
 
 .map iframe {
   filter: grayscale(100%) brightness(90%);
+  width: clamp(300px, 60vw, 600px);
+  height: clamp(200px, 60vh, 600px);
 }
 
 @media (max-width: 500px) {
@@ -1304,4 +1314,8 @@ textarea {
     .end-menu {
         align-items: center;
     }
+}
+
+.text-up {
+    overflow: hidden;
 }

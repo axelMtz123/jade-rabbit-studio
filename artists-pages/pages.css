@@ -248,6 +248,10 @@ header {
     object-fit: cover;
 }
 
+.text-up {
+    overflow: hidden;
+}
+
 @media (max-width: 500px) {
     .page-gallery {
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
