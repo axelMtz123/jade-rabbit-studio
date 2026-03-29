@@ -506,7 +506,7 @@ nav h2 {
         gap: var(--space-2);
     }
 
-    .gallery-title .title-text {
+    .title-text {
         font-size: var(--fs-39);
     }
 
@@ -1144,11 +1144,15 @@ input, #artist-select {
     -webkit-backdrop-filter: blur(10px); /
 }
 
-#artist-select {
-    background-color: rgba(255, 255, 255, 0.3); 
-    backdrop-filter: blur(10px); 
-    -webkit-backdrop-filter: blur(10px); 
-    border: 1px solid var(--color-text);
+select {
+  border: 1px solid #ccc;
+  outline: none;
+  box-shadow: none; 
+  appearance: none; 
+}
+
+select:focus {
+  border: 1px solid var(--color-text);  
 }
 
 textarea {
@@ -1328,6 +1332,10 @@ textarea {
 }
 
 @media (max-width: 500px) {
+
+    #end {
+        margin-top: var(--space-8);
+    }
 
     .end-info {
         flex-direction: column;

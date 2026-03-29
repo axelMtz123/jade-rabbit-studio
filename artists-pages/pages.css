@@ -129,6 +129,7 @@ header {
     font-size: var(--fs-31);
     font-family: Arial, Helvetica, sans-serif;
     cursor: pointer;
+    color: var(--color-text);
 }
 
 #artist-page {
