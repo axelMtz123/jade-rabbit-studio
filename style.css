@@ -536,6 +536,10 @@ nav h2 {
     .btn-var1 {
         font-size: 14px;
     }
+
+    .title-text {
+        font-size: var(--fs-49);
+    }
 }
 
 
@@ -663,6 +667,10 @@ nav h2 {
 
     .about-right-card ul {
         width: 70%;
+    }
+
+    .about-sticky-wrapper p {
+        height: 80%;
     }
 
 
@@ -1016,10 +1024,14 @@ nav h2 {
     #testimonials {
         height: 80vh;
         margin-top: 0;
+    }
 
-        .marquee {
-            margin-top: var(--space-4);
-        }
+    .marquee {
+        margin-top: var(--space-4);
+    }
+
+    .testimonial-sticky-wrapper h2 {
+        font-size: var(--fs-31);
     }
 }
 /*===================
@@ -1120,7 +1132,7 @@ nav h2 {
 input, #artist-select {
     padding: var(--space-1);
     border-radius: 4px;
-    border: 1px solid;
+    border: 1px solid var(--color-text);
     font-weight: 200;
     letter-spacing: var(--ls-wide);
     width: 80%;
