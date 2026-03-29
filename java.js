@@ -184,47 +184,6 @@ filterbtns.forEach((btn) => {
   });
 });
 
-/*===== About =====*/
-
-const yMove = window.innerWidth <= 500 ? 700 : 110;
-
-gsap.to('.number-change', { 
-    yPercent: yMove,
-    ease: "none",
-    scrollTrigger: {
-        trigger: '#about',
-        start: 'bottom bottom',
-        end: 'bottom top',
-        scrub: true,
-    },
-});
-
-
-ScrollTrigger.create({
-    trigger: '#artists',
-    start: 'top center',
-    onEnter: () => {
-        gsap.to('.number-change', {
-            opacity: 0,
-            duration: 0.6,
-            onComplete: () => {
-                document.querySelector('.number-change').textContent = '03';
-                gsap.to('.number-change', { opacity: 1, duration: 0.6 });
-            }
-        });
-    },
-    onLeaveBack: () => {
-        gsap.to('.number-change', {
-            opacity: 0,
-            duration: 0.6,
-            onComplete: () => {
-                document.querySelector('.number-change').textContent = '02';
-                gsap.to('.number-change', { opacity: 1, duration: 0.6 });
-            }
-        });
-    }
-});
-
 /* ===== Artists =====*/
 const scrollContainers = document.querySelectorAll('.artists-horizontal-scroll');
 

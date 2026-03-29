@@ -507,7 +507,7 @@ nav h2 {
     }
 
     .gallery-title .title-text {
-        font-size: var(--fs-49);
+        font-size: var(--fs-39);
     }
 
     .gallery-text {
@@ -606,7 +606,7 @@ nav h2 {
 .about-sticky-wrapper p {
     font-size: var(--fs-31);
     font-family: var(--font-body);
-    width: 60%;
+    width: 70%;
     margin-top: var(--space-8);
     margin-right: var(--space-4);
 }
@@ -681,7 +681,7 @@ nav h2 {
     width: 100%;
     z-index: 6;
     position: relative;
-    margin-top: 60vh;
+    margin-top: 50vh;
 }
 
 .artists-container {
@@ -702,6 +702,7 @@ nav h2 {
     font-family: var(--font-display);
 }
 
+
 .artists-title h2 {
     font-weight: 200;
     width: 50%;
@@ -718,7 +719,7 @@ nav h2 {
 }
 
 .artists-horizontal-scroll {
-    margin-top: auto;
+    margin-top: var(--space-6);
     display: flex;
     width: 100%;
     min-height: auto;
@@ -846,9 +847,9 @@ nav h2 {
 }
 
 @media (max-width: 500px) {
-    #artists {
-        height: 80vh;
-        margin-top: 35vh;
+
+    .artists-title h2 {
+        width: 70%;
     }
 
     .artists-container {
@@ -859,8 +860,8 @@ nav h2 {
         justify-content: start;
     }
 
-    .artists-horizontal-scroll {
-        margin-top: 0;
+    .polaroid-img {
+        height: 300px;
     }
 }
 
